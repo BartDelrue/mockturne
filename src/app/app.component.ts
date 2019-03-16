@@ -10,4 +10,8 @@ export class AppComponent implements OnInit {
   constructor(private mqttService: MqttService) {}
 
   ngOnInit() {}
+
+  searchMatch(id: string) {
+    console.warn(id);
+  }
 }
