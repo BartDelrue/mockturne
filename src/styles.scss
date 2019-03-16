@@ -30,6 +30,12 @@ header {
   padding: 1rem;
 }
 
+.container-wide {
+  width: 95%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
 h1,
 h2,
 h3 {
@@ -41,7 +47,7 @@ p {
 }
 
 main {
-  padding: 2rem;
+  padding: 0rem;
 }
 
 .flex {
@@ -61,6 +67,16 @@ main {
     align-items: center;
     font-size: 1.2rem;
     font-weight: bold;
+    border: 7px solid transparent;
+    cursor: pointer;
+
+    &:hover {
+      border-color: #fff;
+    }
+
+    &--alt {
+      background-color: rgb(255, 58, 91);
+    }
   }
 }
 
@@ -89,9 +105,23 @@ main {
     font-weight: bold;
     text-align: center;
     border: 7px solid transparent;
+    cursor: pointer;
+
+    &:hover {
+      border-color: #fff;
+    }
   }
 }
 
 .clicked {
   border-color: #fff;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: white;
+  font-size: 2rem;
 }
