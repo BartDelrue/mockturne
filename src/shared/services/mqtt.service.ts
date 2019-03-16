@@ -30,12 +30,34 @@ export class MqttService {
   }
 
   private _MQTTMessage() {
+    const color = this.getColor();
     return fromEvent<any>(this._client, 'message').pipe(
       map(message => {
         const data = JSON.parse(message[1].toString());
 
         return data;
       }),
+      map(messages => {
+        return messages.map(el => ({ ...el, color: color() }));
+      }),
     );
+  }
+
+  private getColor() {
+    let i = 0;
+
+    const newColor = () => [
+      Math.round(Math.random() * 100) + 100,
+      Math.round(Math.random() * 100) + 100,
+      Math.round(Math.random() * 100) + 100,
+    ];
+    let previous = newColor();
+    return function() {
+      if (i % 2 === 0) {
+        previous = newColor();
+      }
+      i += 1;
+      return previous;
+    };
   }
 }
