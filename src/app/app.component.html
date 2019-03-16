@@ -1,13 +1,24 @@
 <main>
-  <div class="container">
-    <label for="mpas">Geef je museumpas ID</label>
-    <input type="text" id="mpas" #mpas />
-    <button (click)="searchMatch(mpas.value)">Zoek!</button>
-  </div>
+    <div class="container">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <label for="mpas">Geef je museumpas ID</label>
+            <input type="text" id="mpas" formControlName="mpas">
+            <button type="submit" [disabled]="!form.valid || !mpData">Zoek!</button>
+        </form>
+        <div *ngIf="userData" class="userdata">
+            <div class="user">
+                <p>Jouw bezoeken</p>
+                <ul>
+                    <li *ngFor="let museum of userData" [innerText]="museum.museumnaam_nl"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </main>
-<footer></footer>
+<footer>
+
+</footer>
 
 <div>
-  <app-museumpas-matcher></app-museumpas-matcher>
-  <app-tracker-canvas></app-tracker-canvas>
+    <app-museumpas-matcher></app-museumpas-matcher>
 </div>
