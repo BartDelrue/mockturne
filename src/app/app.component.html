@@ -1,29 +1,42 @@
-<header>
-  <h1>Mockturne <span>Maak &amp; Groet</span></h1>
-  <nav>
-    <ul>
-      <li>
-        <a routerLink="/home">Home</a>
-      </li>
-      <li>
-        <a routerLink="/depot">Depot</a>
-      </li>
-      <li>
-        <a routerLink="/mockturne">Mockturne</a>
-      </li>
-    </ul>
-  </nav>
-</header>
 <main>
-  <div class="container">
-    <label for="mpas">Geef je museumpas ID</label>
-    <input type="text" id="mpas" #mpas />
-    <button (click)="searchMatch(mpas.value)">Zoek!</button>
-  </div>
+    <div class="container">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <label for="mpas">Geef je museumpas ID</label>
+            <input type="text" id="mpas" formControlName="mpas">
+            <button type="submit" [disabled]="!form.valid || !mpData">Zoek!</button>
+        </form>
+        <div *ngIf="userData" class="userdata">
+            <div class="user">
+                <h3>Jouw bezoeken</h3>
+                <ul>
+                    <li *ngFor="let museum of userData" [innerText]="museum.museumnaam_nl"></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info">
+            <div>
+                <h3>Interessante ontmoetingen</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam cum delectus doloremque
+                    eveniet quasi sed tempora. Consectetur, recusandae repudiandae?</p>
+            </div>
+            <div>
+                <h3>Museummaker</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque, est eum harum iste
+                    neque.</p>
+            </div>
+            <div>
+                <h3>Toegankelijke musea</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur corporis dignissimos
+                    dolore eius eum eveniet fugiat labore, laboriosam obcaecati quidem voluptatum!</p>
+            </div>
+        </div>
+    </div>
 </main>
-<footer></footer>
+<footer>
+
+</footer>
 
 <div>
-  <app-museumpas-matcher></app-museumpas-matcher>
-  <app-tracker-canvas></app-tracker-canvas>
+    <app-museumpas-matcher></app-museumpas-matcher>
 </div>

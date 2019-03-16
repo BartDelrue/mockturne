@@ -8,12 +8,15 @@ import { MuseumpasService } from './services/museumpas.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TrackerCanvasComponent } from './components/tracker-canvas/tracker-canvas.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RootComponent } from './components/root/root.component';
+import { DepotComponent } from './components/depot/depot.component';
+import { MockturneComponent } from './components/mockturne/mockturne.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: AppComponent },
-  { path: 'depot', component: AppComponent },
-  { path: 'mockturne', component: AppComponent },
+  { path: 'depot', component: DepotComponent },
+  { path: 'mockturne', component: MockturneComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
@@ -25,8 +28,16 @@ const appRoutes: Routes = [
     TrackerCanvasComponent,
     PageNotFoundComponent,
     RootComponent,
+    DepotComponent,
+    MockturneComponent,
   ],
-  imports: [HttpClientModule, BrowserModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [MuseumpasService],
   bootstrap: [RootComponent],
 })
