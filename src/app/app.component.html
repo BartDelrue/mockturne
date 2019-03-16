@@ -7,10 +7,28 @@
         </form>
         <div *ngIf="userData" class="userdata">
             <div class="user">
-                <p>Jouw bezoeken</p>
+                <h3>Jouw bezoeken</h3>
                 <ul>
                     <li *ngFor="let museum of userData" [innerText]="museum.museumnaam_nl"></li>
                 </ul>
+            </div>
+        </div>
+
+        <div class="info">
+            <div>
+                <h3>Interessante ontmoetingen</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam cum delectus doloremque
+                    eveniet quasi sed tempora. Consectetur, recusandae repudiandae?</p>
+            </div>
+            <div>
+                <h3>Museummaker</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque, est eum harum iste
+                    neque.</p>
+            </div>
+            <div>
+                <h3>Toegankelijke musea</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aspernatur corporis dignissimos
+                    dolore eius eum eveniet fugiat labore, laboriosam obcaecati quidem voluptatum!</p>
             </div>
         </div>
     </div>
