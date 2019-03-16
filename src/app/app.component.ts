@@ -41,6 +41,8 @@ export class AppComponent implements OnInit {
     }
 
     onSubmit() {
+        if (!this.data) return;
+
         this.userData = this.mpData[this.form.value.mpas] || [];
 
         var mijnId: number = this.form.value.mpas || null;
@@ -78,6 +80,14 @@ export class AppComponent implements OnInit {
             num++;
         }
 
-        this.matches.push({id: matchIDfirst, code: '9000'});
+        const random = this.mpData[Object.keys(this.mpData)[Math.floor(Math.random() * 100)]][0];
+
+        this.matches.push({
+            id: this.mpData[matchIDfirst][0]['passholder_id_hackaton'],
+            code: this.mpData[matchIDfirst][0]['postalcode_nl']
+        }, {
+            id: random['passholder_id_hackaton'],
+            code: random['postalcode_nl']
+        });
     }
 }
