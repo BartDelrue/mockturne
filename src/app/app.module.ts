@@ -9,10 +9,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { TrackerCanvasComponent } from './components/tracker-canvas/tracker-canvas.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RootComponent } from './components/root/root.component';
 
 const appRoutes: Routes = [
-  { path: 'app', component: AppComponent },
-  { path: '', redirectTo: '/app', pathMatch: 'full' },
+  { path: 'home', component: AppComponent },
+  { path: 'depot', component: AppComponent },
+  { path: 'mockturne', component: AppComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 
@@ -22,9 +25,10 @@ const appRoutes: Routes = [
     MuseumpasMatcherComponent,
     TrackerCanvasComponent,
     PageNotFoundComponent,
+    RootComponent,
   ],
   imports: [HttpClientModule, BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, ReactiveFormsModule],
   providers: [MuseumpasService],
-  bootstrap: [AppComponent],
+  bootstrap: [RootComponent],
 })
 export class AppModule {}
