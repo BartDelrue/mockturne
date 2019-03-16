@@ -12,10 +12,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RootComponent } from './components/root/root.component';
 import { DepotComponent } from './components/depot/depot.component';
 import { MockturneComponent } from './components/mockturne/mockturne.component';
+import { GroetenComponent } from './components/groeten/groeten.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: AppComponent },
   { path: 'depot', component: DepotComponent },
+  { path: 'groeten', component: GroetenComponent },
   { path: 'mockturne', component: MockturneComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
@@ -30,6 +32,7 @@ const appRoutes: Routes = [
     RootComponent,
     DepotComponent,
     MockturneComponent,
+    GroetenComponent,
   ],
   imports: [
     HttpClientModule,

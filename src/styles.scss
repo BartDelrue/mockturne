@@ -40,6 +40,10 @@ p {
   margin-bottom: 1rem;
 }
 
+main {
+  padding: 2rem;
+}
+
 .flex {
   display: flex;
 }
@@ -65,4 +69,18 @@ p {
 }
 .mb-1 {
   margin-bottom: 1rem;
+}
+.mr-1 {
+  margin-right: 1rem;
+}
+
+.groeten {
+  list-style: none;
+
+  &__item {
+    width: 150px;
+    height: 150px;
+    background-color: mediumaquamarine;
+    margin-right: 1rem;
+  }
 }

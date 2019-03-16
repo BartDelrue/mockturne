@@ -63,7 +63,7 @@ export class TrackerCanvasComponent implements OnInit {
       const cv = p.createCanvas(w, h);
       p.ellipseMode(p.CENTER);
       cv.parent('tracker-cv');
-      p.background(250, 250, 250);
+      p.background(220, 220, 220);
     };
 
     p.draw = () => {
