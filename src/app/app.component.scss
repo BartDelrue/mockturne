@@ -59,4 +59,12 @@ form {
     background: transparent;
     color: white;
   }
+
+  button:hover,
+  button:focus {
+    background: white;
+    color: rgb(0, 0, 116);
+
+  }
+
 }

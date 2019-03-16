@@ -37,6 +37,10 @@ header {
   padding: 1rem;
 }
 
+h1 {
+  margin-top: 2rem;
+}
+
 h1,
 h2,
 h3 {
@@ -124,5 +128,16 @@ main {
   border-radius: 0.5rem;
   background: transparent;
   color: white;
-  font-size: 2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+button {
+  transition: all .2s ease-in-out;
+}
+button:hover,
+button:focus {
+  background: white;
+  color: rgb(0, 0, 116);
+
 }
