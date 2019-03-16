@@ -8,6 +8,7 @@ import { MuseumpasService } from './services/museumpas.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TrackerCanvasComponent } from './components/tracker-canvas/tracker-canvas.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { RootComponent } from './components/root/root.component';
 
 const appRoutes: Routes = [
   { path: 'app', component: AppComponent },
@@ -21,9 +22,10 @@ const appRoutes: Routes = [
     MuseumpasMatcherComponent,
     TrackerCanvasComponent,
     PageNotFoundComponent,
+    RootComponent,
   ],
   imports: [HttpClientModule, BrowserModule, RouterModule.forRoot(appRoutes)],
   providers: [MuseumpasService],
-  bootstrap: [AppComponent],
+  bootstrap: [RootComponent],
 })
 export class AppModule {}
