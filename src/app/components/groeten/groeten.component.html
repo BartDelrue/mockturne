@@ -3,19 +3,25 @@
   <div class="mr-2">
     <h3 class="mb-2">Musea</h3>
     <ul class="groeten flex mb-1">
-      <li class="groeten__item"></li>
-      <li class="groeten__item"></li>
+      <li
+        class="groeten__item"
+        [class.clicked]="clicked"
+        (click)="clicked = true"
+      >
+        <div>SMAK</div>
+      </li>
+      <li class="groeten__item"><div>STAM</div></li>
     </ul>
     <ul class="groeten flex mb-1">
-      <li class="groeten__item"></li>
-      <li class="groeten__item"></li>
+      <li class="groeten__item"><div>MSK</div></li>
+      <li class="groeten__item"><div>Industrie</div></li>
     </ul>
     <ul class="groeten flex mb-1">
-      <li class="groeten__item"></li>
-      <li class="groeten__item"></li>
+      <li class="groeten__item"><div>Design</div></li>
+      <li class="groeten__item"><div>Wereld van Kina</div></li>
     </ul>
   </div>
-  <div>
+  <div *ngIf="clicked">
     <h3 class="mb-2">Bezoeker in het SMAK</h3>
     <app-tracker-canvas></app-tracker-canvas>
   </div>

@@ -70,8 +70,8 @@ main {
 .mb-1 {
   margin-bottom: 1rem;
 }
-.mr-1 {
-  margin-right: 1rem;
+.mr-2 {
+  margin-right: 2rem;
 }
 
 .groeten {
@@ -82,5 +82,16 @@ main {
     height: 150px;
     background-color: mediumaquamarine;
     margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    border: 7px solid transparent;
   }
+}
+
+.clicked {
+  border-color: #fff;
 }
