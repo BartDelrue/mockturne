@@ -28,7 +28,7 @@ export class TrackerCanvasComponent implements OnInit {
         messages.forEach(message => {
           if (message.success) {
             const { x, y } = message.data.coordinates;
-            const tagId = message.tagId;
+            const { tagId, color } = message;
             const i = this.data.findIndex(el => el.tagId === tagId);
             if (i >= 0) {
               this.data[i] = {
@@ -44,7 +44,7 @@ export class TrackerCanvasComponent implements OnInit {
                 x,
                 y,
                 tagId,
-                color: this.getColor(),
+                color,
                 previous: {},
               });
             }
@@ -86,11 +86,11 @@ export class TrackerCanvasComponent implements OnInit {
     };
     // tslint:disable-next-line:semicolon
   };
-  private getColor() {
-    return [
-      Math.round(Math.random() * 100) + 100,
-      Math.round(Math.random() * 100) + 100,
-      Math.round(Math.random() * 100) + 100,
-    ];
-  }
+  // private getColor() {
+  //   return [
+  //     Math.round(Math.random() * 100) + 100,
+  //     Math.round(Math.random() * 100) + 100,
+  //     Math.round(Math.random() * 100) + 100,
+  //   ];
+  // }
 }
