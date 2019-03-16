@@ -17,7 +17,6 @@ export class MqttService {
   constructor() {
     this._connect();
     this.onMQTTMessage$ = this._MQTTMessage();
-    this.onMQTTMessage$.subscribe(message => console.log(message));
   }
 
   private _connect() {
