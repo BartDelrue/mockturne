@@ -16,7 +16,9 @@
                 <h3>Jouw matches</h3>
                 <ul>
                     <li *ngFor="let match of matches">
+                        ID:
                         <span [innerHTML]="match.id"></span>
+                        Postcode:
                         <span [innerHTML]="match.code"></span>
                         <button>Groeten!</button>
                     </li>
