@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MuseumpasMatcherComponent } from './components/museumpas-matcher/museumpas-matcher.component';
+import { MuseumpasService } from './services/museumpas.service';
+import {  HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,10 @@ import { MuseumpasMatcherComponent } from './components/museumpas-matcher/museum
     MuseumpasMatcherComponent
   ],
   imports: [
-    BrowserModule
+      HttpClientModule,
+      BrowserModule
   ],
-  providers: [],
+  providers: [MuseumpasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
