@@ -1,4 +1,31 @@
+<header>
+    <h1>Mockturne <span>Maak &amp; Groet</span></h1>
+    <nav>
+        <ul>
+            <li>
+                Home
+            </li>
+            <li>
+                Depot
+            </li>
+            <li>
+                Mockturne
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="container">
+        <label for="mpas">Geef je museumpas ID</label>
+        <input type="text" id="mpas" #mpas>
+        <button (click)="searchMatch(mpas.value)">Zoek!</button>
+    </div>
+</main>
+<footer>
+
+</footer>
+
 <div>
-  <app-museumpas-matcher></app-museumpas-matcher>
-  <app-tracker-canvas></app-tracker-canvas>
+    <app-museumpas-matcher></app-museumpas-matcher>
+    <app-tracker-canvas></app-tracker-canvas>
 </div>
