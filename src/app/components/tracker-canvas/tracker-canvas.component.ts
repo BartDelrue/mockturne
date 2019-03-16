@@ -23,6 +23,7 @@ export class TrackerCanvasComponent implements OnInit {
     this.x = 0;
     p.setup = () => {
       const cv = p.createCanvas(700, 600);
+      p.rectMode(p.CENTER);
       cv.parent('tracker-cv');
     };
 
