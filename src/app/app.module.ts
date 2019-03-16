@@ -11,8 +11,10 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { RootComponent } from './components/root/root.component';
 
 const appRoutes: Routes = [
-  { path: 'app', component: AppComponent },
-  { path: '', redirectTo: '/app', pathMatch: 'full' },
+  { path: 'home', component: AppComponent },
+  { path: 'depot', component: AppComponent },
+  { path: 'mockturne', component: AppComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 
