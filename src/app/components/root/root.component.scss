@@ -1,0 +1,26 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: inline-block;
+    margin: .3rem;
+    border: 2px solid white;
+    border-top: 0;
+    border-bottom: 0;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all .2s ease-in-out;
+      padding: 0 1rem;
+
+      &:hover,
+      &:focus {
+        background: white;
+        color: rgb(255, 58, 91);
+      }
+    }
+  }
+}
