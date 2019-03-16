@@ -9,7 +9,13 @@ import { MqttService } from 'src/shared/services/mqtt.service';
 })
 export class TrackerCanvasComponent implements OnInit {
   private p5;
-  private data: { x: number; y: number; tagId: string; color: number[] }[] = [];
+  private data: {
+    x: number;
+    y: number;
+    tagId: string;
+    color: number[];
+    previous: any;
+  }[] = [];
 
   constructor(private mqttService: MqttService) {}
 
@@ -20,13 +26,27 @@ export class TrackerCanvasComponent implements OnInit {
         console.log('no messages');
       } else {
         messages.forEach(message => {
-          const { x, y } = message.data.coordinates;
-          const tagId = message.tagId;
-          const i = this.data.findIndex(el => el.tagId === tagId);
-          if (i >= 0) {
-            this.data[i] = { ...this.data[i], x, y, tagId };
-          } else {
-            this.data.push({ x, y, tagId, color: this.getColor() });
+          if (message.success) {
+            const { x, y } = message.data.coordinates;
+            const tagId = message.tagId;
+            const i = this.data.findIndex(el => el.tagId === tagId);
+            if (i >= 0) {
+              this.data[i] = {
+                color: this.data[i].color,
+                x,
+                y,
+                tagId,
+                previous: { ...this.data[i], previous: undefined },
+              };
+            } else {
+              this.data.push({
+                x,
+                y,
+                tagId,
+                color: this.getColor(),
+                previous: {},
+              });
+            }
           }
         });
       }
@@ -43,16 +63,23 @@ export class TrackerCanvasComponent implements OnInit {
       const cv = p.createCanvas(w, h);
       p.ellipseMode(p.CENTER);
       cv.parent('tracker-cv');
-      p.noStroke();
-      p.background(210, 210, 210);
+      p.background(250, 250, 250);
     };
 
     p.draw = () => {
+      p.noStroke();
       this.data.forEach(el => {
         p.fill(el.color[0], el.color[1], el.color[2]);
         const xPos = (el.x / 10_000) * w;
         const yPos = (el.y / 5_000) * h;
-        console.log(xPos, yPos);
+        if (el.previous.x && el.previous.y) {
+          const prevX = (el.previous.x / 10_000) * w;
+          const prevY = (el.previous.y / 5_000) * h;
+          p.stroke(el.color[0], el.color[1], el.color[2]);
+          p.strokeWeight(10);
+          p.line(xPos, p.height - yPos, prevX, p.height - prevY);
+          p.noStroke();
+        }
         p.ellipse(xPos, p.height - yPos, 10, 10);
       });
     };
