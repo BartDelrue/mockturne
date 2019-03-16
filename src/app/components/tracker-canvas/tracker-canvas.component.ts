@@ -86,11 +86,4 @@ export class TrackerCanvasComponent implements OnInit {
     };
     // tslint:disable-next-line:semicolon
   };
-  // private getColor() {
-  //   return [
-  //     Math.round(Math.random() * 100) + 100,
-  //     Math.round(Math.random() * 100) + 100,
-  //     Math.round(Math.random() * 100) + 100,
-  //   ];
-  // }
 }
