@@ -36,5 +36,6 @@ export class TrackerCanvasComponent implements OnInit {
         this.x = 0;
       }
     };
+  // tslint:disable-next-line:semicolon
   };
 }
