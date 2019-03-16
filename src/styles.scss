@@ -39,3 +39,30 @@ h3 {
 p {
   margin-bottom: 1rem;
 }
+
+.flex {
+  display: flex;
+}
+
+.art-list {
+  list-style: none;
+
+  &__item {
+    width: 200px;
+    height: 100px;
+    background-color: mediumaquamarine;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+.mb-1 {
+  margin-bottom: 1rem;
+}
