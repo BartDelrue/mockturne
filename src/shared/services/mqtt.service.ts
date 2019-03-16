@@ -17,7 +17,7 @@ export class MqttService {
   constructor() {
     this._connect();
     this.onMQTTMessage$ = this._MQTTMessage();
-    this.onMQTTMessage$.subscribe(message => console.log(message));
+    // this.onMQTTMessage$.subscribe(message => console.log(message));
   }
 
   private _connect() {
@@ -32,7 +32,7 @@ export class MqttService {
   private _MQTTMessage() {
     return fromEvent<any>(this._client, 'message').pipe(
       map(message => {
-        const data = JSON.parse(message[1].toString())[0];
+        const data = JSON.parse(message[1].toString());
 
         return data;
       }),
