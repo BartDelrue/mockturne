@@ -69,7 +69,7 @@ export class AppComponent implements OnInit {
                     }
                     if (besteScore < score) {
                         besteScore = score;
-                        var matchIDfirst = num;
+                        matchIDfirst = num;
                     }
                 }
 
