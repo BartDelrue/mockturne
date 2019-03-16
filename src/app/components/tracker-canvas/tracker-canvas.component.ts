@@ -32,13 +32,14 @@ export class TrackerCanvasComponent implements OnInit {
             const i = this.data.findIndex(el => el.tagId === tagId);
             if (i >= 0) {
               this.data[i] = {
-                color: this.data[i].color,
+                ...this.data[i],
                 x,
                 y,
                 tagId,
                 previous: { ...this.data[i], previous: undefined },
               };
             } else {
+              // TODO: fix user id + color
               this.data.push({
                 x,
                 y,
