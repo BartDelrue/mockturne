@@ -21,8 +21,11 @@
     li {
       padding: .3rem 0;
 
+      span {
+        margin-right: 1rem;
+      }
+
       button {
-        margin-left: 1rem;
         padding: .5rem;
         background-color: white;
         border: 0;

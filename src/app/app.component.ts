@@ -10,9 +10,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   public data: any;
-  public mpData: any;
-  public userData: {};
-  public matches: any;
+  public mpData: any = {};
+  public userData: any[] = [];
+  public matches: any = [];
 
   form: FormGroup;
 
@@ -76,6 +76,6 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userData = this.mpData[this.form.value.mpas] || {};
+    this.userData = this.mpData[this.form.value.mpas] || [];
   }
 }

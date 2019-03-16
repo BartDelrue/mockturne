@@ -5,7 +5,7 @@
             <input type="text" id="mpas" formControlName="mpas">
             <button *ngIf="mpData" type="submit" [disabled]="!form.valid || !mpData">Zoek!</button>
         </form>
-        <div *ngIf="userData" class="userdata">
+        <div *ngIf="userData && userData.length" class="userdata">
             <div class="user">
                 <h3>Jouw bezoeken</h3>
                 <ul>
@@ -15,7 +15,11 @@
             <div class="matches">
                 <h3>Jouw matches</h3>
                 <ul>
-                    <li><span>[userID]</span> <button>Groeten!</button></li>
+                    <li *ngFor="let match of matches">
+                        <span [innerHTML]="match.id"></span>
+                        <span [innerHTML]="match.code"></span>
+                        <button>Groeten!</button>
+                    </li>
                 </ul>
             </div>
         </div>
