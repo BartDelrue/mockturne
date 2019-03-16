@@ -77,20 +77,13 @@ export class TrackerCanvasComponent implements OnInit {
           const prevX = (el.previous.x / 10_000) * w;
           const prevY = (el.previous.y / 5_000) * h;
           p.stroke(el.color[0], el.color[1], el.color[2]);
-          p.strokeWeight(10);
+          p.strokeWeight(5);
           p.line(xPos, p.height - yPos, prevX, p.height - prevY);
           p.noStroke();
         }
-        p.ellipse(xPos, p.height - yPos, 10, 10);
+        p.ellipse(xPos, p.height - yPos, 5, 5);
       });
     };
     // tslint:disable-next-line:semicolon
   };
-  // private getColor() {
-  //   return [
-  //     Math.round(Math.random() * 100) + 100,
-  //     Math.round(Math.random() * 100) + 100,
-  //     Math.round(Math.random() * 100) + 100,
-  //   ];
-  // }
 }
